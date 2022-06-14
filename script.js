@@ -148,10 +148,10 @@ function searchFor() {
   window.open('https://www.google.com/search?tbm=bks&q=' + bookAuthor + " " + bookTitle + " " + bookYearOfPublication);
 }
 
-   function getDetails() {
+   function get() {
      var parentEl = $(this).parents('[data-book-id]');
     var book = parentEl.find('[data-book-author-input]').val() + " " +  parentEl.find('[data-book-title-input]').val() + " " +  parentEl.find('[data-book-year-input]').val();
-     window.open('http://localhost:8081/details') + localStorage.clear() + localStorage.setItem('book', JSON.stringify(book));
+     window.open('https://marcinpekala.github.io/details.html') + localStorage.clear() + localStorage.setItem('book', JSON.stringify(book));
      window.close();
    }
 
@@ -223,7 +223,7 @@ function searchFor() {
   }
 
   function goBack() {
-    window.open('http://localhost:8081');
+    window.open('https://marcinpekala.github.io/index.html');
     window.close();
   }
 
