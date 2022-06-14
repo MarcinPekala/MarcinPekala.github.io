@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <title>Personal Library</title>
+  </head>
+  
+  <body>
+    <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top py-0 fixed-top">
+      <a href="#" class="navbar-brand">LIBRARY</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navLinks">
+          <ul class="navbar-nav">
+              <li class="nav-item" vaadin-click>
+                  <a href="" class="nav-link">SWITCH TO VAADIN FRONTEND <img src="iu.jpg"></a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+
+  <section class="container-fluid px-0">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div id="headingGroup" class="text-white text-center d-none d-lg-block mt-5">
+        <h1 class="">PERSONAL<span>/</span>L<span>/</span>IBRARY</h1>
+        <h1 class="">PERSONAL<span>/</span>L<span>/</span>IBRARY</h1>
+        <h1 class="">PERSONAL<span>/</span>L<span>/</span>IBRARY</h1>
+        <h1 class="">PERSONAL<span>/</span>L<span>/</span>IBRARY</h1>
+        <h1 class="">PERSONAL<span>/</span>L<span>/</span>IBRARY</h1>
+        <h1 class="">PERSONAL<span>/</span>L<span>/</span>IBRARY</h1>
+        <h1 class="">PERSONAL<span>/</span>L<span>/</span>IBRARY</h1>
+      </div>
+      </div>
+      <div class="col-lg-6">
+        <img class="img-fluid" src="jb.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <div class="row align-items-center content">
+  <main class="crud container">
+    <section class="datatable">
+      <h2>Add a book of your choice</h2>
+      <form
+          class="datatable__row datatable__row--add"
+          method="POST"
+          action="http://localhost:8080/v1/createBook"
+          data-book-add-form
+      >
+        <fieldset class="datatable__row-section datatable__row-section--input-section">
+          <label class="datatable__input-label">
+            Book author
+          </label>
+          <textarea type="text" name="author" placeholder="Insert an author's name"></textarea>
+        </fieldset>
+  
+        <fieldset class="datatable__row-section datatable__row-section--input-section">
+          <label class="datatable__input-label">
+            Book title
+          </label>
+          <textarea name="title" placeholder="Insert book's title"></textarea>
+        </fieldset>
+  
+        <fieldset class="datatable__row-section datatable__row-section--input-section">
+          <label class="datatable__input-label">
+            Book's year of publication
+          </label>
+          <input type="text" name="yearOfPublication" placeholder="Insert book's year of publication">
+        </fieldset>
+  
+        <fieldset class="datatable__row-section datatable__row-section--button-section">
+          <button type="submit" data-book-add-button class="datatable__button">Add a book</button>
+          <button type="submit" data-book-deleteall-button class="datatable__button">Delete all books</button>
+        </fieldset>
+      </form>
+    </section>
+    <section class="datatable">
+      <h2>Please add books of your choice in the input field above (some fields can be null) or see top 5 bestsellers according to Amazon in the database below:</h2>
+      <div class="datatable__books-container" data-books-container></div>
+    </section>
+  </main>
+</div>
+  
+  <div class="template" data-datatable-row-template>
+    <form class="datatable__row" data-book-id="0">
+  
+      <fieldset class="datatable__row-section datatable__row-section--input-section" data-book-author-section>
+        <label class="datatable__input-label">
+          Book author
+        </label>
+        <textarea name="author" placeholder="Insert a new book author" data-book-author-input></textarea>
+        <p class="datatable__field-value" data-book-author-paragraph></p>
+      </fieldset>
+  
+      <fieldset class="datatable__row-section datatable__row-section--input-section" data-book-title-section>
+        <label class="datatable__input-label">
+          Book title
+        </label>
+        <textarea name="title" placeholder="Insert new book title" data-book-title-input></textarea>
+        <p class="datatable__field-value" data-book-title-paragraph></p>
+      </fieldset>
+  
+      <fieldset class="datatable__row-section datatable__row-section--input-section" data-book-year-section>
+        <label class="datatable__input-label">
+          Book's year of publication
+        </label>
+        <input type="text" name="yearOfPublication" placeholder="Insert book's year of publication" data-book-year-input>
+        <p class="datatable__field-value" data-book-year-paragraph></p>
+      </fieldset>
+  
+      <div class="datatable__row-section-wrapper">
+        <fieldset class="datatable__row-section datatable__row-section--button-section">
+          <button type="button" data-book-submit-update-button class="datatable__button datatable__button--editing ">Submit update</button>
+          <button type="button" data-book-edit-abort-button class="datatable__button datatable__button--editing">Abort update</button>
+          <button type="button" data-book-edit-button class="datatable__button">Edit</button>
+          <button type="button" data-book-delete-button class="datatable__button">Delete</button>
+        </fieldset>
+        <fieldset class="datatable__row-section datatable__row-section--button-section">
+          <button type="button" data-book-details-button class="datatable__button">Details </button>
+          <select class="datatable__select">
+            <option>Book Status</option>
+            <option value="B&R">Bought and read</option>
+            <option value="B&U">Bought but unread</option>
+            <option value="TB">To buy</option>
+          </select>
+          <button type="button" data-book-search-button class="datatable__button">Search <img src="poweredbyg.jpg" width="80" height="38"></button>
+        </fieldset>
+      </div>
+  </form>
+  </div>
+
+  <section class="container-fluid px-0">
+    <div class="row align-items-center content">
+      <div class="col-md-6 order-2 order-md1">
+        <img src="sky.jpg" alt="" class="img-fluid">
+      </div>
+      <div class="col-6 text-center order-1 order-md-2">
+<div class="row justify-content-center">
+  <div class="col-10 col-lg-8 blurp mb-5 mb-md-0">
+    <h2>PERSONAL LIBRARY</h2>
+    <img src="lolli_icon.png" alt="" class="d-none d-lg-inline">
+    <p class="lead">The main purpose of this application development is to display practical skills I gathered in regards to the development of REST API applications that use Spring Boot Java on Gradle project in a form of a personal project with separate repositories for HTML/CSS/JS frontend, Vaadin frontend and backend.
+
+      On top of that, Personal Library App is to help people organize their books' collection on a web based app with multiple functions.</p>
+  </div>
+</div>
+      </div>
+    </div>
+
+  </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="jquery-3.4.1.min.js"></script>
+<script src="script.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+      $(function () {
+          $(document).scroll(function () {
+              var $nav = $("#mainNavbar");
+              $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+          });
+      });
+  </script>
+  </body>
+</html>
