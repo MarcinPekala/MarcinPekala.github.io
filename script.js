@@ -8,7 +8,7 @@ $(document).ready(function() {
   // init
   getAllBooks();
   scheduledBookSize();
-  setInterval(scheduledBookSize, 10*1000);
+  setInterval(scheduledBookSize, 60*1000);
 
   function scheduledBookSize() {
     $.ajax({
@@ -18,7 +18,7 @@ $(document).ready(function() {
       contentType: "application/json; charset=utf-8",
       dataType: 'json',
       success: function (data) {
-        window.alert("Every 10 second reminder: current number of books in the database equals " + data + ". In case you can't see the updates in the database please refresh the page.")
+        window.alert("Every one minute reminder: current number of books in the database equals " + data + ". In case you can't see the updates in the database please refresh the page.")
       }
     });
   }
