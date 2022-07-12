@@ -12,7 +12,7 @@ $(document).ready(function() {
   setInterval(scheduledBookSize, 60*1000);
 
 buttons.addEventListener('click', function onClick() {
-  button.style.color = 'blue';
+  button.style.background-color = 'rgb(74, 231, 255)';
 });
   
   function scheduledBookSize() {
