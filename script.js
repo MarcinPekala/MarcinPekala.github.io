@@ -11,7 +11,7 @@ $(document).ready(function() {
   scheduledBookSize();
   setInterval(scheduledBookSize, 60*1000);
 
-button.addEventListener('click', function onClick() {
+buttons.addEventListener('click', function onClick() {
   button.style.backgroundColor = 'red';
   button.style.color = 'black';
 });
