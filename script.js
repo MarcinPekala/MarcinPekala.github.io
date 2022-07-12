@@ -2,6 +2,7 @@ $(document).ready(function() {
   const apiRoot = 'https://rocky-hollows-26459.herokuapp.com/v1/';
   const datatableRowTemplate = $('[data-datatable-row-template]').children()[0];
   const booksContainer = $('[data-books-container]');
+  const buttons = document.querySelectorAll('buttons');
 
   var availableBooks = {};
 
@@ -10,6 +11,11 @@ $(document).ready(function() {
   scheduledBookSize();
   setInterval(scheduledBookSize, 60*1000);
 
+button.addEventListener('click', function onClick() {
+  button.style.backgroundColor = 'salmon';
+  button.style.color = 'white';
+});
+  
   function scheduledBookSize() {
     $.ajax({
       url: apiRoot + 'countAllBooks',
