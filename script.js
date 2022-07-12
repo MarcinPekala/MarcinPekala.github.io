@@ -12,8 +12,8 @@ $(document).ready(function() {
   setInterval(scheduledBookSize, 60*1000);
 
 button.addEventListener('click', function onClick() {
-  button.style.backgroundColor = 'salmon';
-  button.style.color = 'white';
+  button.style.backgroundColor = 'red';
+  button.style.color = 'black';
 });
   
   function scheduledBookSize() {
